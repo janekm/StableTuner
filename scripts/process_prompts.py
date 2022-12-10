@@ -28,7 +28,7 @@ def main(args):
                 f.write(caption)
             shutil.copy(os.path.join(images_dir, img_file), os.path.join(output_dir, img_file))
             img_fileb = base_caption + "b.jpg"
-            shutil.copy(os.path.join(images_dir, img_fileb), os.path.join(output_dir, img_fileb))
+            shutil.copy(os.path.join(images_dir, img_file), os.path.join(output_dir, img_fileb))
             output_file_nameb = os.path.join(output_dir, base_caption + "b.txt")
             with open(output_file_nameb, "w") as f:
                 f.write(base_prompt)
