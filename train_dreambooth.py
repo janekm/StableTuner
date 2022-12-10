@@ -768,6 +768,7 @@ class DataLoaderMultiAspect():
 
                     except:
                         print(f" *** Error reading {txt_file_path} to get caption, falling back to filename")
+                        caption_from_filename = os.path.splitext(os.path.basename(pathname))[0].split("_")[0]
                         identifier = caption_from_filename
                         pass
                 else:
@@ -1500,6 +1501,8 @@ def main():
             unet.train()
             if args.train_text_encoder:
                 text_encoder.train()
+            else:
+                text_encoder.train(False)
             
             #save initial weights
             if args.save_on_training_start==True and epoch==0:

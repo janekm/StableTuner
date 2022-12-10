@@ -1,0 +1,41 @@
+accelerate launch --num_cpu_threads_per_process 20 train_dreambooth.py \
+    --use_bucketing \
+    --save_latents_cache \
+    --dataset_repeats 1 \
+    --save_every_n_epoch 10 \
+    --save_on_training_start \
+    --num_train_epochs 600 \
+    --learning_rate 2e-6 \
+    --pretrained_model_name_or_path "/workspace/train/input/79" \
+    --instance_data_dir "/workspace/train/train_set" \
+    --class_data_dir "/workspace/train/train_set" \
+    --class_prompt "a photo of a girl" \
+    --save_sample_prompt "a photo of alina" \
+    --output_dir "/workspace/train/output" \
+    --resolution 768 \
+    --train_batch_size 20 \
+    --use_8bit_adam \
+    --log_interval 10 \
+    --save_infer_steps 50 \
+    --sample_height 768 \
+    --sample_width 768 \
+    --save_interval 10000 \
+    --mixed_precision bf16 \
+    --delete_checkpoints_when_full_drive \
+    --send_telegram_updates \
+    --telegram_chat_id 5012783758 \
+    --telegram_token "5804918164:AAE2NNVj68cm0wb76Cpkok8xAXJdPpKK81M" \
+    --add_sample_prompt "photo of alina" \
+    --add_sample_prompt "glamour photo of lalisa manobal wearing lingerie by Mark Prinz" \
+    --add_sample_prompt "fashion editorial of emma watson by lara jade" \
+    --add_sample_prompt "photo of chloe moretz wearing a bikini on the beach at sunset" \
+    --add_sample_prompt "beauty photo by gary lupton" \
+    --add_sample_prompt "alina as wonderwoman in a post-apocalyptic factory overgrown with plants, by guweiz" \
+    --add_sample_prompt "wlop style environmental concept art digital painting of emma watson as an astronaut" \
+    --add_sample_prompt "a beautiful girl wearing a bikini on the beach" \
+    --add_sample_prompt "real life photo of a beautiful girl, full body photoshoot, long braided curly blonde hair, twisted braids, golden watery eyes, full round face, short smile, pale pink bikini, serene beach setting, cinematic lighting, medium shot, mid-shot, highly detailed, artstation contest winner, 105mm f2.4" 
+
+
+
+        --save_on_training_start \
+    --train_text_encoder \
