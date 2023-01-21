@@ -19,8 +19,11 @@ def main(args):
             base_caption = os.path.splitext(img_file)[0]
             caption_file_name = os.path.join(images_dir, base_caption + ".txt")
             caption = ""
-            with open(caption_file_name, "r") as f:
-                caption = f.read().strip()
+            try:
+                with open(caption_file_name, "r") as f:
+                    caption = f.read().strip()
+            except:
+                caption = base_prompt
             caption = base_prompt + ", " + caption
             print(f"full caption: {caption}")
             output_file_name = os.path.join(output_dir, base_caption + ".txt")
